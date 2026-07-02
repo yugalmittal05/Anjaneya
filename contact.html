@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us & Enquiry Form — Anjaneya College of Higher Education, Delhi</title>
+  <meta name="description" content="Get in touch with Anjaneya College of Higher Education, . Fill our enquiry form for free course counselling — we'll call you back within 24 hours." />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+    .faq { display: grid; gap: 16px; }
+    .faq-item {
+      background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px; cursor: pointer; font-weight: 600; font-size: 1rem; color: var(--navy);
+      list-style: none; user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; font-size: 1.4rem; color: var(--gold); flex-shrink: 0; }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-item .faq-body { padding: 0 22px 18px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+    .hours-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+    .hours-card { background: var(--paper); border-radius: var(--radius-sm); padding: 18px; }
+    .hours-card h4 { font-size: 0.9rem; margin-bottom: 6px; }
+    .hours-card p { color: var(--text-muted); font-size: 0.88rem; }
+    .step-list { display: grid; gap: 18px; counter-reset: steps; }
+    .step-item { display: flex; gap: 18px; align-items: flex-start; counter-increment: steps; }
+    .step-num {
+      width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: var(--gold-light);
+      font-family: var(--font-mono); font-weight: 700; font-size: 0.9rem; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .step-item strong { display: block; margin-bottom: 4px; }
+    .step-item p { color: var(--text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar__contacts">
+        <a href="tel:+911100000000">📞 +91 11 0000 0000</a>
+        <a href="mailto:info@anjaneya.edu.in" class="hide-mobile">✉ info@anjaneya.edu.in</a>
+        <a href="https://wa.me/911100000000" class="hide-mobile">💬 WhatsApp Us</a>
+      </div>
+      <span class="topbar__badge">🎓 Admissions Open 2025–26</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="brand">
+          <div class="seal seal--sm"><div class="seal__circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div></div>
+          <div><div class="brand__name">Anjaneya College</div><div class="brand__tagline">of Higher Education</div></div>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="contact.html" class="is-active">Contact</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="#enquiry" class="btn btn-primary">Enquire Now</a>
+          <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header page-header--img">
+    <img
+      src="https://images.unsplash.com/photo-1491841651911-c44484b0d4be?auto=format&fit=crop&w=1400&q=80"
+      alt="Students at admissions reception desk"
+      class="page-header__bg"
+      loading="eager"
+    />
+    <div class="page-header__overlay"></div>
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html" style="color:inherit;">Home</a> › Contact Us</p>
+      <h1>Contact & Enquiry</h1>
+      <p>Reach out to us for admission guidance, course information, or any query. Our counsellors will get back to you within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO ROW -->
+  <section class="section section--alt" style="padding:56px 0 0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;" class="contact-strip">
+        <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:28px;text-align:center;border-top:3px solid var(--gold);">
+          <div style="font-size:2rem;margin-bottom:10px;" aria-hidden="true">📞</div>
+          <h4>Call Us</h4>
+          <p style="color:var(--text-muted);font-size:0.88rem;margin-top:6px;">Mon – Sat, 9 AM – 6 PM</p>
+          <a href="tel:+911100000000" style="display:block;margin-top:10px;font-weight:700;color:var(--navy);font-size:1.05rem;">+91 11 0000 0000</a>
+          <a href="tel:+919999999999" style="display:block;margin-top:4px;font-weight:700;color:var(--navy);">+91 99999 99999</a>
+        </div>
+        <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:28px;text-align:center;border-top:3px solid var(--teal);">
+          <div style="font-size:2rem;margin-bottom:10px;" aria-hidden="true">✉️</div>
+          <h4>Email Us</h4>
+          <p style="color:var(--text-muted);font-size:0.88rem;margin-top:6px;">Reply within 12–24 hours</p>
+          <a href="mailto:info@anjaneya.edu.in" style="display:block;margin-top:10px;font-weight:600;color:var(--navy);font-size:0.95rem;">info@anjaneya.edu.in</a>
+          <a href="mailto:admissions@anjaneya.edu.in" style="display:block;margin-top:4px;font-weight:600;color:var(--navy);font-size:0.92rem;">admissions@anjaneya.edu.in</a>
+        </div>
+        <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:28px;text-align:center;border-top:3px solid var(--maroon);">
+          <div style="font-size:2rem;margin-bottom:10px;" aria-hidden="true">📍</div>
+          <h4>Visit Us</h4>
+          <p style="color:var(--text-muted);font-size:0.88rem;margin-top:6px;line-height:1.6;">[Full Institute Address]<br>Delhi — 110001<br>Near [Landmark / Metro Station]</p>
+          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:10px;font-size:0.85rem;color:var(--maroon);font-weight:600;">Open in Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN ENQUIRY FORM + CONTACT INFO -->
+  <section class="section section--alt" id="enquiry">
+    <div class="container">
+      <div class="enquiry-block">
+
+        <!-- LEFT — Info + Steps -->
+        <div>
+          <p class="eyebrow">Get in Touch</p>
+          <h2>Send Us Your Enquiry</h2>
+          <p style="color:var(--text-muted);margin-top:12px;font-size:1.02rem;line-height:1.8;">
+            Fill the form and an Anjaneya counsellor will personally call you within <strong>24 hours</strong> — free of charge, no obligation. We'll help you pick the right course, understand the fee structure, and guide you through the admission process.
+          </p>
+
+          <div style="margin-top:32px;">
+            <h3 style="font-size:1.1rem;margin-bottom:20px;">How the Admission Process Works</h3>
+            <ol class="step-list" role="list">
+              <li class="step-item">
+                <div class="step-num" aria-hidden="true">1</div>
+                <div><strong>Fill the Enquiry Form</strong><p>Tell us your name, contact details, and course interest — takes under 2 minutes.</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num" aria-hidden="true">2</div>
+                <div><strong>Counsellor Calls You Back</strong><p>A real counsellor (not a bot) will call within 24 hours to discuss your goals and guide you to the right programme.</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num" aria-hidden="true">3</div>
+                <div><strong>Visit the Campus</strong><p>Come in for a campus tour, meet the faculty, and get a feel for the environment before you decide.</p></div>
+              </li>
+              <li class="step-item">
+                <div class="step-num" aria-hidden="true">4</div>
+                <div><strong>Complete Admission</strong><p>Submit documents, pay the first instalment, and you're officially enrolled. Batch starts in August 2025.</p></div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="hours-grid">
+            <div class="hours-card">
+              <h4>📅 Office Hours</h4>
+              <p>Monday – Saturday<br><strong>9:00 AM – 6:00 PM</strong></p>
+            </div>
+            <div class="hours-card">
+              <h4>💬 WhatsApp Enquiry</h4>
+              <p>Mon – Sun<br><a href="https://wa.me/911100000000" style="color:var(--teal);font-weight:600;">+91 11 0000 0000</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT — THE MAIN FORM -->
+        <div class="form-card" style="position:sticky;top:90px;">
+          <h3 style="margin-bottom:4px;">Admission Enquiry Form</h3>
+          <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:26px;">We'll call you back within 24 hours.</p>
+
+          <form data-enquiry-form aria-label="Admission enquiry form">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="ct-name">Full Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="ct-name" name="name" placeholder="Your full name" autocomplete="name" required aria-required="true" />
+                <span class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form-field">
+                <label for="ct-phone">Mobile Number <span aria-hidden="true">*</span></label>
+                <input type="tel" id="ct-phone" name="phone" placeholder="10-digit number" autocomplete="tel" required aria-required="true" inputmode="numeric" maxlength="10" />
+                <span class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="ct-email">Email Address <span aria-hidden="true">*</span></label>
+              <input type="email" id="ct-email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="ct-course">Course Interested In <span aria-hidden="true">*</span></label>
+              <select id="ct-course" name="course" required aria-required="true">
+                <option value="">— Select a course —</option>
+                <optgroup label="Teacher Training">
+                  <option>Nursery Teacher Training (NTT)</option>
+                  <option>Primary Teacher Training (PTT)</option>
+                  <option>Basic Teacher Training (BTT)</option>
+                  <option>Bachelor of Education (B.Ed.)</option>
+                  <option>Master of Education (M.Ed.)</option>
+                </optgroup>
+                <optgroup label="Technology">
+                  <option>B.Sc. Computer Science</option>
+                  <option>Master of Computer Applications (MCA)</option>
+                </optgroup>
+                <optgroup label="Management">
+                  <option>Bachelor of Business Administration (BBA)</option>
+                  <option>Master of Business Administration (MBA)</option>
+                </optgroup>
+                <optgroup label="Arts, Commerce & Science">
+                  <option>Bachelor of Arts (BA)</option>
+                  <option>Bachelor of Commerce (B.Com)</option>
+                  <option>Bachelor of Science (B.Sc)</option>
+                  <option>Master of Arts (MA)</option>
+                  <option>Master of Commerce (M.Com)</option>
+                  <option>Master of Science (M.Sc)</option>
+                </optgroup>
+                <optgroup label="Skill & Creative">
+                  <option>Polytechnic Courses</option>
+                  <option>Hotel Management</option>
+                  <option>Fashion Designing</option>
+                  <option>Yoga Teacher Training</option>
+                </optgroup>
+                <option value="Other / Not Sure — Need Guidance">Other / Not Sure — Need Guidance</option>
+              </select>
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="ct-state">State / City</label>
+                <select id="ct-state" name="state">
+                  <option value="">— Select state —</option>
+                  <option selected>Delhi</option>
+                  <option>Uttar Pradesh</option>
+                  <option>Haryana</option>
+                  <option>Rajasthan</option>
+                  <option>Punjab</option>
+                  <option>Bihar</option>
+                  <option>Madhya Pradesh</option>
+                  <option>Maharashtra</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="ct-qualify">Highest Qualification</label>
+                <select id="ct-qualify" name="qualification">
+                  <option value="">— Select —</option>
+                  <option>10th / Matric</option>
+                  <option>12th / Senior Secondary</option>
+                  <option>Graduation (BA / B.Com / BSc / BCA etc.)</option>
+                  <option>Post-Graduation</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="ct-message">Message or Specific Query</label>
+              <textarea id="ct-message" name="message" rows="4" placeholder="Tell us anything specific — batch timings, fees, eligibility, scholarships, or any other questions…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="padding:16px;font-size:1rem;" data-submit-btn data-default-label="Send Enquiry">
+              📨 Send Enquiry
+            </button>
+
+            <div class="form-status" data-form-status role="alert" aria-live="assertive"></div>
+
+            <p class="placeholder-note" style="margin-top:16px;">
+              ⚙️ <strong>Dev note:</strong> To activate real email delivery, add your EmailJS <code>PUBLIC_KEY</code>, <code>SERVICE_ID</code>, and <code>TEMPLATE_ID</code> in <code>js/script.js</code>. See the README for the 5-minute setup steps.
+            </p>
+
+            <p style="font-size:0.78rem;color:var(--text-muted);margin-top:14px;text-align:center;">
+              🔒 Your details are safe. We never share them with third parties.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section style="background:var(--paper);padding:0 0 60px;">
+    <div class="container">
+      <h2 style="margin-bottom:22px;padding-top:60px;">Find Us on the Map</h2>
+      <div class="map-frame">
+        <!-- Replace the src below with your client's real Google Maps embed URL -->
+        <!-- Go to maps.google.com → Search your address → Share → Embed a map → Copy the iframe src -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2d77.06889754725782!3d28.527554259809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin"
+          title="Anjaneya College of Higher Education location on Google Maps"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <p class="placeholder-note" style="margin-top:14px;">📍 <strong>Dev note:</strong> Replace the <code>iframe src</code> above with your client's actual Google Maps embed URL to show the correct location.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Quick Answers</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq" role="list">
+
+        <details class="faq-item" role="listitem">
+          <summary>What documents are required for admission?</summary>
+          <div class="faq-body">Generally: 10th & 12th marksheets, graduation certificates (for PG courses), passport-size photographs, Aadhaar card or government ID, and domicile/caste certificate if applicable. Your counsellor will share the exact checklist based on the course you apply for.</div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary>Does Anjaneya College offer EMI or instalment payment options?</summary>
+          <div class="faq-body">Yes. We offer easy instalment plans for most courses. The fee can typically be paid in 2–4 instalments over the course duration. Discuss the plan with your counsellor at the time of enrolment.</div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary>Are the certificates issued by Anjaneya College recognised?</summary>
+          <div class="faq-body">All degree programmes are affiliated with recognised universities and are UGC-approved. Diploma and certificate programmes are issued by the institute and carry industry recognition. Specific affiliation details per course can be shared by your counsellor.</div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary>Is there a separate batch for working professionals?</summary>
+          <div class="faq-body">Yes. We run morning batches (7:30 AM – 10:00 AM), evening batches (6:00 PM – 8:30 PM), and weekend batches (Saturday & Sunday) specifically for working professionals. Batch schedules vary by course.</div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary>What is your placement process like?</summary>
+          <div class="faq-body">Our dedicated placement cell begins preparing students 3 months before course completion. This includes resume building, mock interviews, LinkedIn profile setup, and company presentations. We have 200+ partner companies  NCR actively hiring from our pool.</div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary>How do I reach the institute by Metro?</summary>
+          <div class="faq-body">The nearest Metro station is [Metro Station Name] on the [Metro Line Colour/Name] Line. From there, it's a [X]-minute walk / auto ride to the campus. Exact directions will be shared once you confirm your campus visit.</div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <div class="seal seal--sm"><div class="seal__circle"><svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div></div>
+            <div><div class="brand__name">Anjaneya College</div><div class="brand__tagline" style="color:#7E89A6;">of Higher Education</div></div>
+          </a>
+          <p>Empowering students  with quality professional education since 2014.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://wa.me/911100000000" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul role="list"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">All Courses</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="#enquiry">Apply Now</a></li></ul></div>
+        <div class="footer-col"><h4>Popular Courses</h4><ul role="list"><li><a href="courses.html">B.Ed. / NTT / PTT</a></li><li><a href="courses.html">MBA / BBA</a></li><li><a href="courses.html">B.Sc CS / MCA</a></li><li><a href="courses.html">BA / B.Com / B.Sc</a></li><li><a href="courses.html">Hotel Management</a></li><li><a href="courses.html">Fashion Designing</a></li></ul></div>
+        <div class="footer-col"><h4>Contact Us</h4><ul role="list" style="gap:14px;display:grid;"><li style="font-size:0.88rem;color:#B7C0D6;">📍 [Institute Address],<br>Delhi — 110001</li><li><a href="tel:+911100000000">📞 +91 11 0000 0000</a></li><li><a href="mailto:info@anjaneya.edu.in">✉ info@anjaneya.edu.in</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Anjaneya College of Higher Education, . All rights reserved.</span>
+        <span>Phase 1 — Static Site</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fab-stack" aria-label="Quick contact buttons">
+    <a href="tel:+911100000000" class="fab fab--call" aria-label="Call us"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l1.06-.94a2 2 0 0 1 2.09-.5c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+    <a href="https://wa.me/911100000000" class="fab fab--whatsapp" aria-label="WhatsApp us" target="_blank" rel="noopener noreferrer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
