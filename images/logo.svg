@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Anjaneya College of Higher Education logo">
+  <title>Anjaneya College of Higher Education</title>
+
+  <!-- Navy background -->
+  <circle cx="100" cy="100" r="99" fill="#16233E"/>
+
+  <!-- Gold outer ring -->
+  <circle cx="100" cy="100" r="97" fill="none" stroke="#C9A227" stroke-width="2.5"/>
+
+  <!-- Inner decorative dashed ring -->
+  <circle cx="100" cy="100" r="83" fill="none" stroke="#C9A227" stroke-width="1" stroke-dasharray="4 3" opacity="0.65"/>
+
+  <!-- ═══ Flame of Knowledge (Diya) ═══ -->
+  <!-- Outer flame -->
+  <path d="M100,29
+    C96,38 88,43 87,54
+    C86,63 91,70 94.5,74
+    C94,67 96,61 99,57
+    C99,63 99.5,69 100,75
+    C100.5,69 101,63 101,57
+    C104,61 106,67 105.5,74
+    C109,70 114,63 113,54
+    C112,43 104,38 100,29Z"
+    fill="#C9A227"/>
+
+  <!-- Inner flame highlight -->
+  <path d="M100,39
+    C98.5,45 96,49 96,56
+    C96,61.5 97.5,65 99.5,68
+    C99.5,64.5 100,61 100,57
+    C100,61 100.5,64.5 100.5,68
+    C102.5,65 104,61.5 104,56
+    C104,49 101.5,45 100,39Z"
+    fill="#F5E580" opacity="0.78"/>
+
+  <!-- ═══ Ornamental side rules ═══ -->
+  <line x1="30" y1="77" x2="73" y2="77" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+  <circle cx="28" cy="77" r="2.2" fill="#C9A227" opacity="0.5"/>
+  <line x1="127" y1="77" x2="170" y2="77" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+  <circle cx="172" cy="77" r="2.2" fill="#C9A227" opacity="0.5"/>
+
+  <!-- ═══ Central "A" ═══ -->
+  <text x="100" y="151"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="82"
+    font-weight="bold"
+    fill="#C9A227">A</text>
+
+  <!-- Decorative rule below A -->
+  <line x1="56" y1="158" x2="144" y2="158" stroke="#C9A227" stroke-width="1.5" opacity="0.55"/>
+  <!-- Centre diamond -->
+  <polygon points="100,163 104,167 100,171 96,167" fill="#C9A227" opacity="0.55"/>
+
+  <!-- ═══ Arc text paths ═══ -->
+  <defs>
+    <path id="topArc" d="M17,100 A83,83 0 0,1 183,100"/>
+    <path id="botArc" d="M21,109 A79,79 0 0,0 179,109"/>
+  </defs>
+
+  <!-- Top arc: ANJANEYA COLLEGE -->
+  <text font-family="Arial, Helvetica, sans-serif"
+    font-size="13.5" font-weight="700"
+    fill="#C9A227" letter-spacing="2.5">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">ANJANEYA COLLEGE</textPath>
+  </text>
+
+  <!-- Bottom arc: OF HIGHER EDUCATION -->
+  <text font-family="Arial, Helvetica, sans-serif"
+    font-size="10" fill="#C0C8DA" letter-spacing="2">
+    <textPath href="#botArc" startOffset="50%" text-anchor="middle">OF HIGHER EDUCATION</textPath>
+  </text>
+
+  <!-- Side accent dots -->
+  <circle cx="44" cy="106" r="2.5" fill="#C9A227" opacity="0.7"/>
+  <circle cx="156" cy="106" r="2.5" fill="#C9A227" opacity="0.7"/>
+</svg>

@@ -9,12 +9,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --navy: #16233E;
-  --navy-light: #223158;
-  --navy-soft: #2C3D66;
+  --navy: #0C4A2E;
+  --navy-light: #1A6B43;
+  --navy-soft: #245C3A;
   --gold: #C9A227;
-  --gold-light: #E0BE52;
-  --teal: #2F6F62;
+  --gold-light: #E8C94A;
+  --teal: #1E8C68;
   --maroon: #8C2F39;
   --bg: #F4F5F7;
   --bg-alt: #FFFFFF;
@@ -204,6 +204,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand__name { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--navy); line-height: 1.1; }
 .brand__tagline { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.brand__logo { height: 62px; width: auto; object-fit: contain; flex-shrink: 0; }
+.hero__logo  { height: 120px; width: auto; object-fit: contain; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.35)); }
+.footer__logo { height: 52px; width: auto; object-fit: contain; }
 
 .nav__links { display: flex; align-items: center; gap: 30px; }
 .nav__links a {
@@ -225,46 +228,119 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .nav__toggle span { width: 24px; height: 2px; background: var(--navy); }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero — full building background ---------- */
 .hero {
   position: relative;
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-soft) 60%, var(--navy-light) 100%);
-  color: #fff;
   overflow: hidden;
-  padding: 90px 0 110px;
+  padding: 80px 0 90px;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  background: #f0f4f2; /* fallback while image loads */
 }
-.hero::before {
-  content: "";
-  position: absolute; inset: 0;
-  background-image:
-    radial-gradient(circle at 85% 15%, rgba(201,162,39,0.18), transparent 45%),
-    radial-gradient(circle at 10% 90%, rgba(47,111,98,0.25), transparent 40%);
-}
-.hero .container { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
-.hero__eyebrow { color: var(--gold-light); }
-.hero__eyebrow::before { background: var(--gold-light); }
-.hero h1 { color: #fff; margin-bottom: 18px; }
-.hero h1 em { font-style: italic; color: var(--gold-light); }
-.hero p.lede { color: #C3CADC; font-size: 1.12rem; max-width: 520px; margin-bottom: 32px; }
-.hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
-.hero__points { display: flex; flex-direction: column; gap: 12px; }
-.hero__points li { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: #DCE2EF; }
-.hero__points svg { flex-shrink: 0; color: var(--gold-light); }
 
-.hero__panel {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  backdrop-filter: blur(6px);
+/* Background image layer */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
-.hero__panel-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
-.hero__panel-head h3 { color: #fff; font-size: 1.1rem; }
-.hero__panel-head p { color: #B7C0D6; font-size: 0.85rem; margin-top: 2px; }
-.hero__stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.hero__stat { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 14px; }
-.hero__stat strong { font-family: var(--font-mono); font-size: 1.6rem; color: var(--gold-light); display: block; }
-.hero__stat span { font-size: 0.8rem; color: #AEB7CC; }
+.hero__bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  display: block;
+}
+/* White gradient from left → transparent right so text stays readable */
+.hero__bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.97) 0%,
+    rgba(255,255,255,0.94) 30%,
+    rgba(255,255,255,0.78) 48%,
+    rgba(255,255,255,0.18) 68%,
+    rgba(255,255,255,0.0) 100%
+  );
+}
+
+/* Grid: text left, stats card right */
+.hero .container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Text — dark on light background */
+.hero__content { display: flex; flex-direction: column; gap: 0; }
+.hero h1 { color: var(--navy); margin-bottom: 16px; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero p.lede { color: var(--text); font-size: 1.05rem; max-width: 500px; margin-bottom: 28px; }
+.hero__eyebrow { color: var(--gold); margin-bottom: 12px; }
+.hero__eyebrow::before { background: var(--gold); }
+.hero__logo { height: 110px; width: auto; object-fit: contain; margin-bottom: 20px; }
+.hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+.hero__points { display: flex; flex-direction: column; gap: 10px; }
+.hero__points li { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--text); }
+.hero__points svg { flex-shrink: 0; color: var(--navy); }
+
+/* Outline button override for light hero background */
+.btn-hero-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 0.95rem; cursor: pointer;
+  background: transparent;
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+.btn-hero-outline:hover {
+  background: var(--navy);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Floating stats card — right side */
+.hero__stats-card {
+  background: rgba(12, 74, 46, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.22);
+  justify-self: end;
+  width: 100%;
+  max-width: 360px;
+}
+.hero__stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.hero__stat { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 14px; }
+.hero__stat strong { font-family: var(--font-mono); font-size: 1.7rem; color: var(--gold-light); display: block; }
+.hero__stat span { font-size: 0.78rem; color: rgba(255,255,255,0.78); }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero .container { grid-template-columns: 1fr; gap: 32px; }
+  .hero__bg-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.97) 0%,
+      rgba(255,255,255,0.95) 55%,
+      rgba(255,255,255,0.75) 80%,
+      rgba(255,255,255,0.30) 100%
+    );
+  }
+  .hero__stats-card { max-width: 100%; justify-self: stretch; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 56px 0 64px; min-height: auto; }
+  .hero__logo { height: 80px; }
+}
 
 /* ---------- Marquee / news strip ---------- */
 .newsbar { background: var(--paper); border-bottom: 1px solid var(--border); overflow: hidden; }
@@ -485,28 +561,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .fab--whatsapp { background: #25D366; }
 .fab:hover { transform: scale(1.06); }
 
-/* ---------- Hero image panel ---------- */
-.hero__image-wrap {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  aspect-ratio: 4 / 3.6;
-}
-.hero__img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  transition: transform 6s ease;
-}
-.hero__image-wrap:hover .hero__img { transform: scale(1.04); }
-.hero__stat-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: rgba(14, 22, 44, 0.86);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 20px 24px;
-}
-
 /* ---------- Intro image ---------- */
 .intro__img {
   width: 100%; height: 100%;
@@ -603,7 +657,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
-  .hero .container { grid-template-columns: 1fr; }
   .intro { grid-template-columns: 1fr; }
   .enquiry-block { grid-template-columns: 1fr; }
   .course-grid { grid-template-columns: repeat(2, 1fr); }
