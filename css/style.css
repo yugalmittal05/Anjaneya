@@ -40,7 +40,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;   /* ← prevent any element pushing page wider */
+  overflow-x: clip;     /* ← clip without scroll container (keeps sticky nav working */
   max-width: 100%;
 }
 
@@ -55,7 +55,7 @@ body {
   background: var(--bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;   /* ← belt-and-braces on body too */
+  overflow-x: clip;     /* ← belt-and-braces on body too */
   width: 100%;
 }
 
@@ -639,17 +639,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   overflow: hidden;
   min-height: 280px;
   display: flex; align-items: flex-end;
+  width: 100%;           /* ← explicit full width */
+  left: 0; right: 0;    /* ← no offset */
 }
 .page-header__bg {
-  position: absolute; inset: 0;
-  object-fit: cover; width: 100%; height: 100%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0; /* ← fallback for older mobile browsers */
+  inset: 0;
+  object-fit: cover;
+  width: 100%; height: 100%;
   display: block;
 }
 .page-header__overlay {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   background: linear-gradient(to top, rgba(14,22,44,0.92) 40%, rgba(14,22,44,0.55) 100%);
 }
 .page-header--img .container { position: relative; z-index: 1; padding-bottom: 56px; }
+
+/* ---------- Contact info strip (3-col → responsive) ---------- */
+.contact-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
 
 /* ---------- Contact welcome strip ---------- */
 .contact-welcome-img {
